@@ -3,9 +3,16 @@ An experiment of integrating React, Redux, React Router, React Native, and Expre
 For Firebase version, click here -> [Integration Experiment (Firebase)](https://github.com/exchange321/integration-experiment-firebase/)
 
 ## Current Status
-* Initializing App
+* Server Initialized
+    - Initialized error handler
+    - Initialized MongoDB and Mongoose
+    - Initialized Sessions
+    - Initialized Models (Teacher, Topic, Course)
+    - Initialized Basic Routes for Testing (/teachers, /topics, /courses)
 
 ## Finished
+- [ ] **Initialization**
+    - [x] ~~Server Initialization~~
 
 ## Todos
 * Core:
