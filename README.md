@@ -17,7 +17,7 @@ For Firebase version, click here -> [Integration Experiment (Firebase)](https://
 ## Todos
 * Core:
     - [ ] **Initialization**
-        - [ ] Web App Initialization
+        - [ ] **Web App Initialization**
     - [ ] Transforming App for Firebase to Express ( React Web )
         - [ ] Integrating DDP Server to Express
         - [ ] Integrating DDP Client to Web App
