@@ -4,12 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:watch": "nodemon --inspect --watch . app.js",
+    "lint": "node_modules/.bin/esw .",
+    "lint:watch": "npm run lint -- --watch",
+    "start": "npm-run-all --parallel dev:watch lint:watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-watch": "^3.0.0",
+    "npm-run-all": "^4.0.2"
   }
 }
