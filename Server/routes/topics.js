@@ -4,13 +4,13 @@
 const express = require('express');
 const router = express.Router();
 
-const Teacher = require('../model/teacher');
+const Topic = require('../model/topic');
 
 router.get('/', (req, res, next) => {
-    Teacher.find()
+    Topic.find()
         .exec()
-        .then((teachers) => {
-            res.json(teachers);
+        .then((topics) => {
+            res.json(topics);
         })
         .catch((err) => {
             next(err);
