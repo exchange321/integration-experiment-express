@@ -29,7 +29,7 @@ export const showForm = (course = {
 },
                          modalTitle = 'New Course',
                          saveButtonText = 'Add Course',
-                         editingCourseId = '',) => ({
+                         editingCourseId = '') => ({
     type: COURSE_ACTION_TYPES.SHOW_FORM,
     course,
     modalTitle,

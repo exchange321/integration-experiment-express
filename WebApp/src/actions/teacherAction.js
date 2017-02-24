@@ -28,7 +28,7 @@ export const showForm = (teacher = {
 },
                          modalTitle = 'New Teacher',
                          saveButtonText = 'Add Teacher',
-                         editingTeacherId = '',) => ({
+                         editingTeacherId = '') => ({
     type: TEACHER_ACTION_TYPES.SHOW_FORM,
     teacher,
     modalTitle,

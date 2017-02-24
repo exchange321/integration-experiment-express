@@ -26,7 +26,7 @@ export const showForm = (topic = {
 },
                          modalTitle = 'New Topic',
                          saveButtonText = 'Add Topic',
-                         editingTopicId = '',) => ({
+                         editingTopicId = '') => ({
     type: TOPIC_ACTION_TYPES.SHOW_FORM,
     topic,
     modalTitle,
