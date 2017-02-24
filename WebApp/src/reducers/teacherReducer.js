@@ -1,13 +1,13 @@
 /**
  * Created by Wayuki on 03-Feb-17 0003.
  */
-import {TEACHER_ACTION_TYPES} from '../actions/actionTypes';
+import { TEACHER_ACTION_TYPES } from '../actions/actionTypes';
 import initialState from './initialState';
 
 const teacherReducer = (state = initialState.teacherPage, action) => {
     switch (action.type) {
         case TEACHER_ACTION_TYPES.SHOW_FORM: {
-            const {teacher, modalTitle, saveButtonText, editingTeacherId} = action;
+            const { teacher, modalTitle, saveButtonText, editingTeacherId } = action;
             return {
                 ...state,
                 editing: true,

@@ -1,7 +1,7 @@
 /**
  * Created by Wayuki on 08-Feb-17 0008.
  */
-import {APP_ACTION_TYPES} from '../actions/actionTypes';
+import { APP_ACTION_TYPES } from '../actions/actionTypes';
 import initialState from './initialState';
 
 const notificationReducer = (state = initialState.appPage, action) => {

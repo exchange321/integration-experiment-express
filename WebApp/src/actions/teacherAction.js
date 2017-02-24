@@ -1,9 +1,9 @@
 /**
  * Created by Wayuki on 03-Feb-17 0003.
  */
-import {routerActions} from 'react-router-redux';
-import {TEACHER_ACTION_TYPES} from './actionTypes';
-import {setNotification} from './appAction';
+import { routerActions } from 'react-router-redux';
+import { TEACHER_ACTION_TYPES } from './actionTypes';
+import { setNotification } from './appAction';
 import * as helpers from '../helpers/helpers';
 
 const processingSaveTeacher = isSavingTeacher => ({
@@ -29,12 +29,12 @@ export const showForm = (teacher = {
                          modalTitle = 'New Teacher',
                          saveButtonText = 'Add Teacher',
                          editingTeacherId = '') => ({
-    type: TEACHER_ACTION_TYPES.SHOW_FORM,
-    teacher,
-    modalTitle,
-    saveButtonText,
-    editingTeacherId,
-});
+                             type: TEACHER_ACTION_TYPES.SHOW_FORM,
+                             teacher,
+                             modalTitle,
+                             saveButtonText,
+                             editingTeacherId,
+                         });
 
 export const hideForm = () => (
     {
@@ -54,7 +54,7 @@ export const saveTeacher = () => (
     (dispatch, getState, getFirebase) => {
         const firebase = getFirebase();
         if (firebase.auth().currentUser) {
-            const {teacherPage: {editingTeacherId, modal: {teacher}}} = getState();
+            const { teacherPage: { editingTeacherId, modal: { teacher } } } = getState();
 
             // Form Validation - Start
             let hasError = false;
@@ -84,9 +84,9 @@ export const saveTeacher = () => (
                         dispatch(hideForm());
                         dispatch(processingSaveTeacher(false));
                     }).catch((err) => {
-                    dispatch(setNotification('error', err.message));
-                    dispatch(processingSaveTeacher(false));
-                });
+                        dispatch(setNotification('error', err.message));
+                        dispatch(processingSaveTeacher(false));
+                    });
             }
         } else {
             dispatch(setNotification('error', 'You are not authenticated. Please Login.'));
@@ -99,7 +99,7 @@ export const deleteTeacher = () => (
     (dispatch, getState, getFirebase) => {
         const firebase = getFirebase();
         if (firebase.auth().currentUser) {
-            const {teacherPage: {editingTeacherId}} = getState();
+            const { teacherPage: { editingTeacherId } } = getState();
             dispatch(processingDeleteTeacher(true));
             firebase.helpers.remove(`teachers/${editingTeacherId}`)
                 .then(() => {
@@ -107,9 +107,9 @@ export const deleteTeacher = () => (
                     dispatch(hideForm());
                     dispatch(processingDeleteTeacher(false));
                 }).catch((err) => {
-                dispatch(setNotification('error', err.message));
-                dispatch(processingDeleteTeacher(false));
-            });
+                    dispatch(setNotification('error', err.message));
+                    dispatch(processingDeleteTeacher(false));
+                });
         } else {
             dispatch(setNotification('error', 'You are not authenticated. Please Login.'));
             dispatch(routerActions.push('/login'));

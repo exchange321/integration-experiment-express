@@ -1,9 +1,9 @@
 /**
  * Created by Wayuki on 03-Feb-17 0003.
  */
-import {routerActions} from 'react-router-redux';
-import {TOPIC_ACTION_TYPES} from './actionTypes';
-import {setNotification} from './appAction';
+import { routerActions } from 'react-router-redux';
+import { TOPIC_ACTION_TYPES } from './actionTypes';
+import { setNotification } from './appAction';
 import * as helpers from '../helpers/helpers';
 
 const processingSaveTopic = isSavingTopic => ({
@@ -27,12 +27,12 @@ export const showForm = (topic = {
                          modalTitle = 'New Topic',
                          saveButtonText = 'Add Topic',
                          editingTopicId = '') => ({
-    type: TOPIC_ACTION_TYPES.SHOW_FORM,
-    topic,
-    modalTitle,
-    saveButtonText,
-    editingTopicId,
-});
+                             type: TOPIC_ACTION_TYPES.SHOW_FORM,
+                             topic,
+                             modalTitle,
+                             saveButtonText,
+                             editingTopicId,
+                         });
 
 export const hideForm = () => ({
     type: TOPIC_ACTION_TYPES.HIDE_FORM,
@@ -48,7 +48,7 @@ export const saveTopic = () => (
     (dispatch, getState, getFirebase) => {
         const firebase = getFirebase();
         if (firebase.auth().currentUser) {
-            const {coursesPage: {editingTopicId, modal: {topic}}} = getState();
+            const { coursesPage: { editingTopicId, modal: { topic } } } = getState();
             // Form Validation - Start
             let hasError = false;
             const msg = {};
@@ -69,9 +69,9 @@ export const saveTopic = () => (
                         dispatch(hideForm());
                         dispatch(processingSaveTopic(false));
                     }).catch((err) => {
-                    dispatch(setNotification('error', err.message));
-                    dispatch(processingSaveTopic(false));
-                });
+                        dispatch(setNotification('error', err.message));
+                        dispatch(processingSaveTopic(false));
+                    });
             }
         } else {
             dispatch(setNotification('error', 'You are not authenticated. Please Login.'));
@@ -84,7 +84,7 @@ export const deleteTopic = topicIds => (
     (dispatch, getState, getFirebase) => {
         const firebase = getFirebase();
         if (firebase.auth().currentUser) {
-            const {coursesPage: {editingTopicId}} = getState();
+            const { coursesPage: { editingTopicId } } = getState();
             const nextTopicIndex = topicIds.indexOf(editingTopicId) + 1;
             let uri = '/';
             if (!topicIds || topicIds.length <= 1) {

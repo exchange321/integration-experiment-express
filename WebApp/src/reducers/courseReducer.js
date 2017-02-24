@@ -1,7 +1,7 @@
 /**
  * Created by Wayuki on 03-Feb-17 0003.
  */
-import {COURSE_ACTION_TYPES} from '../actions/actionTypes';
+import { COURSE_ACTION_TYPES } from '../actions/actionTypes';
 import initialState from './initialState';
 
 const courseReducer = (state = initialState.coursePage, action) => {

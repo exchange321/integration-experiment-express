@@ -1,10 +1,10 @@
 /**
  * Created by Wayuki on 10-Feb-17 0010.
  */
-import {routerActions} from 'react-router-redux';
+import { routerActions } from 'react-router-redux';
 
-import {LOGIN_ACTION_TYPES} from './actionTypes';
-import {setNotification} from './appAction';
+import { LOGIN_ACTION_TYPES } from './actionTypes';
+import { setNotification } from './appAction';
 
 const processingLogin = isLoggingIn => ({
     type: LOGIN_ACTION_TYPES.PROCESSING_LOGIN,
@@ -20,7 +20,7 @@ export const handleFormFieldChange = (key, value) => ({
 export const handleLogin = () => (
     (dispatch, getState, getFirebase) => {
         dispatch(processingLogin(true));
-        const {loginPage: {credential}} = getState();
+        const { loginPage: { credential } } = getState();
         const firebase = getFirebase();
         firebase.login(credential).then(() => {
             dispatch(processingLogin(false));

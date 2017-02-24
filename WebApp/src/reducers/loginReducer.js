@@ -1,7 +1,7 @@
 /**
  * Created by Wayuki on 10-Feb-17 0010.
  */
-import {LOGIN_ACTION_TYPES} from '../actions/actionTypes';
+import { LOGIN_ACTION_TYPES } from '../actions/actionTypes';
 import initialState from './initialState';
 
 const loginReducer = (state = initialState.loginPage, action) => {
