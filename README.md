@@ -11,15 +11,14 @@ For Firebase version, click here -> [Integration Experiment (Firebase)](https://
     - Initialized Basic Routes for Testing (/teachers, /topics, /courses)
 
 ## Finished
-- [ ] **Initialization**
+- [x] ~~Initialization~~
     - [x] ~~Server Initialization~~
+    - [x] ~~Web App Initialization~~
 
 ## Todos
 * Core:
-    - [ ] **Initialization**
-        - [ ] **Web App Initialization**
-    - [ ] Transforming App for Firebase to Express ( React Web )
-        - [ ] Integrating DDP Server to Express
+    - [ ] **Transforming App for Firebase to Express ( React Web )**
+        - [ ] **Integrating DDP Server to Express**
         - [ ] Integrating DDP Client to Web App
         - [ ] Teachers (Read)
         - [ ] Teachers (Edit)
