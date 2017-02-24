@@ -6,28 +6,21 @@ const TextArea = ({containerClass, label, name, id, className, placeholder, valu
         className += ' form-control-danger';
     }
     return (
-        < div
-    className = {containerClass} >
-        < label
-    className = "form-control-label"
-    htmlFor = {id} > {label} < / label >
-        < textarea
-    name = {name}
-    className = {className}
-    id = {id}
-    placeholder = {placeholder}
-    value = {value}
-    cols = "30"
-    rows = "10"
-    onChange = {onChange}
-        / >
-        {errorMsg.length > 0 && < div
-    className = "form-control-feedback" > {errorMsg} < / div >
-}
-    </
-    div >
-    )
-    ;
+        <div className={containerClass}>
+            <label className="form-control-label" htmlFor={id}>{label}</label>
+            <textarea
+                name={name}
+                className={className}
+                id={id}
+                placeholder={placeholder}
+                value={value}
+                cols="30"
+                rows="10"
+                onChange={onChange}
+            />
+            { errorMsg.length > 0 && <div className="form-control-feedback">{errorMsg}</div> }
+        </div>
+    );
 };
 
 TextArea.propTypes = {

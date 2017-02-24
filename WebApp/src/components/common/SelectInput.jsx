@@ -6,33 +6,22 @@ const SelectInput = ({containerClass, label, name, id, className, options, value
         className += ' form-control-danger';
     }
     return (
-        < div
-    className = {containerClass} >
-        < label
-    className = "form-control-label"
-    htmlFor = {id} > {label} < / label >
-        < select
-    name = {name}
-    className = {className}
-    id = {id}
-    value = {value}
-    onChange = {onChange}
-        >
-        {options.map(({value: optionValue, text}) => (
-        < option
-    key = {optionValue}
-    value = {optionValue} > {text} < / option >
-    ))
-}
-    </
-    select >
-    {errorMsg.length > 0 && < div
-    className = "form-control-feedback" > {errorMsg} < / div >
-}
-    </
-    div >
-    )
-    ;
+        <div className={containerClass}>
+            <label className="form-control-label" htmlFor={id}>{label}</label>
+            <select
+                name={name}
+                className={className}
+                id={id}
+                value={value}
+                onChange={onChange}
+            >
+                { options.map(({value: optionValue, text}) => (
+                    <option key={optionValue} value={optionValue}>{text}</option>
+                )) }
+            </select>
+            { errorMsg.length > 0 && <div className="form-control-feedback">{errorMsg}</div> }
+        </div>
+    );
 };
 
 SelectInput.propTypes = {

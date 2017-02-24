@@ -98,27 +98,23 @@ class TeachersPage extends Component {
     renderFormSubmitButton = () => {
         const {modal: {saveButtonText, isSavingTeacher}} = this.props;
         return isSavingTeacher ? (
-            < Button
-            className = "btn-teacher-submit loading"
-        type = "submit"
-        color = "primary"
-        disabled
-        >
-        Processing
-        ...
-        </
-        Button >
-        ) :
-        (
-        < Button
-        className = "btn-teacher-submit"
-        type = "submit"
-        color = "primary"
+                <Button
+                    className="btn-teacher-submit loading"
+                    type="submit"
+                    color="primary"
+                    disabled
+                >
+                    Processing...
+                </Button>
+            ) : (
+                <Button
+                    className="btn-teacher-submit"
+                    type="submit"
+                    color="primary"
             >
-            {saveButtonText}
-            < / Button >
-        )
-        ;
+                    {saveButtonText}
+                </Button>
+            );
     };
 
     renderFormDeleteButton = () => {
@@ -127,136 +123,94 @@ class TeachersPage extends Component {
             return null;
         }
         return isDeletingTeacher ? (
-            < Button
-            className = "btn-teacher-delete loading"
-        type = "button"
-        outline
-        color = "danger"
-        disabled
-        >
-        Processing
-        ...
-        </
-        Button >
-        ) :
-        (
-        < Button
-        className = "btn-teacher-delete"
-        type = "button"
-        outline
-        color = "danger"
-        onClick = {this.handleTeacherDelete
-    }
-        >
-        Delete
-        Teacher
-        < / Button >
-        )
-        ;
+                <Button
+                    className="btn-teacher-delete loading"
+                    type="button"
+                    outline
+                    color="danger"
+                    disabled
+                >
+                    Processing...
+                </Button>
+            ) : (
+                <Button
+                    className="btn-teacher-delete"
+                    type="button"
+                    outline
+                    color="danger"
+                    onClick={this.handleTeacherDelete}
+                >
+                    Delete Teacher
+                </Button>
+            );
     };
 
     render() {
         const {editing, teachers, editingTeacherId, modal, actions: {hideForm}} = this.props;
         return (
-            < div
-        className = "main-content" >
-            < h2 > Teachers < / h2 >
-            < ul
-        className = "clearfix" >
-            < ReactCSSTransitionGroup
-        transitionName = "block"
-        transitionEnterTimeout = {500}
-        transitionLeaveTimeout = {500}
-        transitionAppear
-        transitionAppearTimeout = {500}
-            >
-            {
-                isLoaded(teachers) && !isEmpty(teachers) &&
-            Object.keys(teachers).map((teacherId) => {
-                const teacher = teachers[teacherId];
-                return (
-                    < Teacher
-                key = {teacherId}
-                id = {teacherId}
-                name = {teacher.name
-            }
-                bio = {teacher.bio
-            }
-                img = {teacher.img_src
-            }
-                editing = {teacherId === editingTeacherId
-            }
-                handleTeacherClick = {()
-                =>
-                this.showForm(teacherId)
-            }
+            <div className="main-content">
+                <h2>Teachers</h2>
+                <ul className="clearfix">
+                    <ReactCSSTransitionGroup
+                        transitionName="block"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={500}
+                        transitionAppear
+                        transitionAppearTimeout={500}
+                    >
+                        {
+                            isLoaded(teachers) && !isEmpty(teachers) &&
+                            Object.keys(teachers).map((teacherId) => {
+                                const teacher = teachers[teacherId];
+                                return (
+                                    <Teacher
+                                        key={teacherId}
+                                        id={teacherId}
+                                        name={teacher.name}
+                                        bio={teacher.bio}
+                                        img={teacher.img_src}
+                                        editing={teacherId === editingTeacherId}
+                                        handleTeacherClick={() => this.showForm(teacherId)}
+                                    />
+                                );
+                            })
+                        }
+                    </ReactCSSTransitionGroup>
+                </ul>
+                { React.createElement(VisibleToUser(() => (
+                    <div className="btn-container text-right">
+                        <Button outline color="primary" onClick={() => this.showForm()}>Add Teacher</Button>
+                    </div>
+                ))) }
+                <ModalContainer
+                    isOpen={editing}
+                    toggle={hideForm}
+                    handleFormSubmit={this.handleFormSubmit}
+                    title={modal.modalTitle}
+                    bodyContent={(
+                        <TeacherForm
+                            name={modal.teacher.name}
+                            bio={modal.teacher.bio}
+                            img={modal.teacher.img_src}
+                            onChange={this.handleFormFieldChange}
+                            errors={modal.errors}
+                        />
+                    )}
+                    footerContent={
+                        React.createElement(
+                            VisibleToUser(
+                                () => (
+                                    <ButtonGroup>
+                                        { this.renderFormDeleteButton() }
+                                        { this.renderFormSubmitButton() }
+                                    </ButtonGroup>
+                                ),
+                            ),
+                        )
+                    }
                 />
-                )
-                ;
-            })
-    }
-    </
-        ReactCSSTransitionGroup >
-        < / ul >
-        {React.createElement(VisibleToUser(() => (
-        < div
-        className = "btn-container text-right" >
-            < Button
-        outline
-        color = "primary"
-        onClick = {()
-    =>
-        this.showForm()
-    }>
-        Add
-        Teacher < / Button >
-        < / div >
-    )))
-    }
-    <
-        ModalContainer
-        isOpen = {editing}
-        toggle = {hideForm}
-        handleFormSubmit = {this.handleFormSubmit
-    }
-        title = {modal.modalTitle
-    }
-        bodyContent = {(
-            < TeacherForm
-        name = {modal.teacher.name
-    }
-        bio = {modal.teacher.bio
-    }
-        img = {modal.teacher.img_src
-    }
-        onChange = {this.handleFormFieldChange
-    }
-        errors = {modal.errors
-    }
-    />
-    )
-    }
-        footerContent = {
-            React.createElement(
-            VisibleToUser(
-                () => (
-                < ButtonGroup >
-                {this.renderFormDeleteButton()
-    }
-        {
-            this.renderFormSubmitButton()
-        }
-    </
-        ButtonGroup >
-    ),
-    ),
-    )
-    }
-    />
-    </
-        div >
-    )
-        ;
+            </div>
+        );
     }
 }
 

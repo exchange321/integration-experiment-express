@@ -28,7 +28,7 @@ export default {
             {
                 test: /\.(js|jsx)$/,
                 include: [path.join(__dirname, 'index.web.js'), path.join(__dirname, 'src')],
-                loaders: ['babel']
+                loaders: ['babel'],
             },
             {test: /(\.css)$/, loaders: ['style', 'css', 'postcss']},
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},

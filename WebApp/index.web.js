@@ -11,7 +11,7 @@ import './node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './node_modules/toastr/build/toastr.min.css';
 import './src/css/index.css';
 
-window.$ = window.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery'); // eslint-disable-line no-multi-assign
 window.Tether = require('tether');
 require('bootstrap');
 

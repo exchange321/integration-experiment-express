@@ -6,69 +6,58 @@ import SelectInput from '../../common/SelectInput.jsx';
 const CourseForm = ({title, description, img_src, topics, topic, onChange, errors}) => {
     const errorElement = Object.keys(errors);
     return (
-        < div
-    className = "form-container" >
-        < TextInput
-    containerClass = "form-group"
-    label = "Title"
-    type = "text"
-    name = "title"
-    id = "form-title"
-    className = "form-control"
-    placeholder = "Enter Course's Title"
-    value = {title}
-    onChange = {onChange}
-    errorMsg = {errorElement.includes('title') ? errors.title : ''
-}
-    />
-    <
-    TextArea
-    containerClass = "form-group"
-    label = "Description"
-    name = "description"
-    id = "form-desc"
-    className = "form-control"
-    placeholder = "Enter Course's Description"
-    value = {description}
-    onChange = {onChange}
-    errorMsg = {errorElement.includes('description') ? errors.description : ''
-}
-    />
-    <
-    TextInput
-    containerClass = "form-group"
-    label = "Image"
-    type = "url"
-    name = "img_src"
-    id = "form-img"
-    className = "form-control"
-    placeholder = "Enter Course's Image URL"
-    value = {img_src}
-    onChange = {onChange}
-    errorMsg = {errorElement.includes('img_src') ? errors.img_src : ''
-}
-    />
-    <
-    SelectInput
-    containerClass = "form-group"
-    label = "Topic"
-    name = "topic"
-    id = "form-topic"
-    className = "form-control"
-    options = {Object.keys(topics).map(topicId => ({
-        value: topicId,
-        text: topics[topicId].name,
-    }))
-}
-    value = {topic}
-    onChange = {onChange}
-    errorMsg = {errorElement.includes('topic') ? errors.topic : ''
-}
-    />
-    </
-    div >
-    )
-    ;
+        <div className="form-container">
+            <TextInput
+                containerClass="form-group"
+                label="Title"
+                type="text"
+                name="title"
+                id="form-title"
+                className="form-control"
+                placeholder="Enter Course's Title"
+                value={title}
+                onChange={onChange}
+                errorMsg={errorElement.includes('title') ? errors.title : ''}
+            />
+            <TextArea
+                containerClass="form-group"
+                label="Description"
+                name="description"
+                id="form-desc"
+                className="form-control"
+                placeholder="Enter Course's Description"
+                value={description}
+                onChange={onChange}
+                errorMsg={errorElement.includes('description') ? errors.description : ''}
+            />
+            <TextInput
+                containerClass="form-group"
+                label="Image"
+                type="url"
+                name="img_src"
+                id="form-img"
+                className="form-control"
+                placeholder="Enter Course's Image URL"
+                value={img_src}
+                onChange={onChange}
+                errorMsg={errorElement.includes('img_src') ? errors.img_src : ''}
+            />
+            <SelectInput
+                containerClass="form-group"
+                label="Topic"
+                name="topic"
+                id="form-topic"
+                className="form-control"
+                options={Object.keys(topics).map(topicId => ({
+                    value: topicId,
+                    text: topics[topicId].name,
+                }))}
+                value={topic}
+                onChange={onChange}
+                errorMsg={errorElement.includes('topic') ? errors.topic : ''}
+            />
+        </div>
+    );
 };
 
 CourseForm.propTypes = {

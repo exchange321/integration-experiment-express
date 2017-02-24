@@ -21,7 +21,9 @@ const setErrorMessage = msg => ({
     msg,
 });
 
-export const showForm = (topic = {name: ''},
+export const showForm = (topic = {
+    name: '',
+},
                          modalTitle = 'New Topic',
                          saveButtonText = 'Add Topic',
                          editingTopicId = '',) => ({

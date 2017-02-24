@@ -51,84 +51,65 @@ class LoginPage extends Component {
 
     renderLoginButton = () => (
         this.props.isLoggingIn ? (
-            < Button
-            className = "mt-4 loading"
-    color = "primary"
-    size = "lg"
-    type = "submit"
-    disabled
->
-    Logging
-    In
-...
-</
-    Button
->
-) : (
-<
-    Button
-    className = "mt-4"
-    color = "primary"
-    size = "lg"
-    type = "submit"
-        >
-        Login
-        < / Button >
-)
-)
-    ;
+                <Button
+                    className="mt-4 loading"
+                    color="primary"
+                    size="lg"
+                    type="submit"
+                    disabled
+                >
+                    Logging In...
+                </Button>
+            ) : (
+                <Button
+                    className="mt-4"
+                    color="primary"
+                    size="lg"
+                    type="submit"
+                >
+                    Login
+                </Button>
+            )
+    );
 
     render() {
         const {email, password} = this.props.credential;
         return (
-            < div
-        className = "main-content" >
-            < form
-        className = "py-2"
-        onSubmit = {this.handleFormSubmit
-    }>
-    <
-        fieldset
-        className = "w-75 mx-auto" >
-            < legend
-        className = "display-4 text-center mb-4" > Login < / legend >
-            < TextInput
-        containerClass = "form-group"
-        label = "Email Address"
-        type = "email"
-        name = "email"
-        id = "user-email"
-        className = "form-control"
-        placeholder = "Please Enter Your Email Address. "
-        value = {email}
-        onChange = {this.handleFormFieldChange
-    }
-        errorMsg = ""
-            / >
-            < TextInput
-        containerClass = "form-group"
-        label = "Password"
-        type = "password"
-        name = "password"
-        id = "user-password"
-        className = "form-control"
-        placeholder = "Please Enter Your Password. "
-        value = {password}
-        onChange = {this.handleFormFieldChange
-    }
-        errorMsg = ""
-            / >
-            < div
-        className = "btn-container text-center" >
-            {this.renderLoginButton()
-    }
-    </
-        div >
-        < / fieldset >
-        < / form >
-        < / div >
-    )
-        ;
+            <div className="main-content">
+                <form className="py-2" onSubmit={this.handleFormSubmit}>
+                    <fieldset className="w-75 mx-auto">
+                        <legend className="display-4 text-center mb-4">Login</legend>
+                        <TextInput
+                            containerClass="form-group"
+                            label="Email Address"
+                            type="email"
+                            name="email"
+                            id="user-email"
+                            className="form-control"
+                            placeholder="Please Enter Your Email Address. "
+                            value={email}
+                            onChange={this.handleFormFieldChange}
+                            errorMsg=""
+                        />
+                        <TextInput
+                            containerClass="form-group"
+                            label="Password"
+                            type="password"
+                            name="password"
+                            id="user-password"
+                            className="form-control"
+                            placeholder="Please Enter Your Password. "
+                            value={password}
+                            onChange={this.handleFormFieldChange}
+                            errorMsg=""
+                        />
+                        <div className="btn-container text-center">
+                            { this.renderLoginButton() }
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        );
     }
 }
 

@@ -5,52 +5,44 @@ import TextArea from '../common/TextArea.jsx';
 const TeacherForm = ({name, bio, img, onChange, errors}) => {
     const errorElement = Object.keys(errors);
     return (
-        < div
-    className = "form-container" >
-        < TextInput
-    containerClass = "form-group"
-    label = "Name"
-    type = "text"
-    name = "name"
-    id = "form-name"
-    className = "form-control"
-    placeholder = "Enter Teacher's Name"
-    value = {name}
-    onChange = {onChange}
-    errorMsg = {errorElement.includes('name') ? errors.name : ''
-}
-    />
-    <
-    TextArea
-    containerClass = "form-group"
-    label = "Biography"
-    name = "bio"
-    id = "form-bio"
-    className = "form-control"
-    placeholder = "Enter Teacher's Biography"
-    value = {bio}
-    onChange = {onChange}
-    errorMsg = {errorElement.includes('bio') ? errors.bio : ''
-}
-    />
-    <
-    TextInput
-    containerClass = "form-group"
-    label = "Image"
-    type = "url"
-    name = "img_src"
-    id = "form-img"
-    className = "form-control"
-    placeholder = "Enter Teacher's Image"
-    value = {img}
-    onChange = {onChange}
-    errorMsg = {errorElement.includes('img_src') ? errors.img_src : ''
-}
-    />
-    </
-    div >
-    )
-    ;
+        <div className="form-container">
+            <TextInput
+                containerClass="form-group"
+                label="Name"
+                type="text"
+                name="name"
+                id="form-name"
+                className="form-control"
+                placeholder="Enter Teacher's Name"
+                value={name}
+                onChange={onChange}
+                errorMsg={errorElement.includes('name') ? errors.name : ''}
+            />
+            <TextArea
+                containerClass="form-group"
+                label="Biography"
+                name="bio"
+                id="form-bio"
+                className="form-control"
+                placeholder="Enter Teacher's Biography"
+                value={bio}
+                onChange={onChange}
+                errorMsg={errorElement.includes('bio') ? errors.bio : ''}
+            />
+            <TextInput
+                containerClass="form-group"
+                label="Image"
+                type="url"
+                name="img_src"
+                id="form-img"
+                className="form-control"
+                placeholder="Enter Teacher's Image"
+                value={img}
+                onChange={onChange}
+                errorMsg={errorElement.includes('img_src') ? errors.img_src : ''}
+            />
+        </div>
+    );
 };
 
 TeacherForm.propTypes = {

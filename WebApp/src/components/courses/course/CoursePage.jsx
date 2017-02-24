@@ -111,27 +111,23 @@ class CoursePage extends Component {
     renderFormSubmitButton = () => {
         const {modal: {saveButtonText, isSavingCourse}} = this.props;
         return isSavingCourse ? (
-            < Button
-            className = "btn-course-submit loading"
-        type = "submit"
-        color = "primary"
-        disabled
-        >
-        Processing
-        ...
-        </
-        Button >
-        ) :
-        (
-        < Button
-        className = "btn-course-submit"
-        type = "submit"
-        color = "primary"
+                <Button
+                    className="btn-course-submit loading"
+                    type="submit"
+                    color="primary"
+                    disabled
+                >
+                    Processing...
+                </Button>
+            ) : (
+                <Button
+                    className="btn-course-submit"
+                    type="submit"
+                    color="primary"
             >
-            {saveButtonText}
-            < / Button >
-        )
-        ;
+                    {saveButtonText}
+                </Button>
+            );
     };
 
     renderFormDeleteButton = () => {
@@ -140,114 +136,88 @@ class CoursePage extends Component {
             return null;
         }
         return isDeletingCourse ? (
-            < Button
-            className = "btn-course-delete loading"
-        type = "button"
-        outline
-        color = "danger"
-        disabled
-        >
-        Processing
-        ...
-        </
-        Button >
-        ) :
-        (
-        < Button
-        className = "btn-course-delete"
-        type = "button"
-        outline
-        color = "danger"
-        onClick = {this.handleCourseDelete
-    }
-        >
-        Delete
-        Course
-        < / Button >
-        )
-        ;
+                <Button
+                    className="btn-course-delete loading"
+                    type="button"
+                    outline
+                    color="danger"
+                    disabled
+                >
+                    Processing...
+                </Button>
+            ) : (
+                <Button
+                    className="btn-course-delete"
+                    type="button"
+                    outline
+                    color="danger"
+                    onClick={this.handleCourseDelete}
+                >
+                    Delete Course
+                </Button>
+            );
     };
 
     render() {
         const {courses, topics, editing, modal, editingCourseId, actions} = this.props;
         console.log(courses);
         return (
-            < div >
-            < ul >
-            < ReactCSSTransitionGroup
-        transitionName = "block"
-        transitionEnterTimeout = {500}
-        transitionLeaveTimeout = {0}
-        transitionAppear
-        transitionAppearTimeout = {500}
-            >
-            {
-                isLoaded(courses) && !isEmpty(courses) &&
-            Object.keys(courses).map(courseId => (
-            < Course
-        key = {courseId}
-        id = {courseId}
-        title = {courses[courseId].title}
-        desc = {courses[courseId].description}
-        img = {courses[courseId].img_src}
-        editing = {editingCourseId === courseId
-    }
-        onCourseClick = {()
-    =>
-        this.showForm(courseId)
-    }
-    />
-    ))
-    }
-    </
-        ReactCSSTransitionGroup >
-        < / ul >
-        < ModalContainer
-        isOpen = {editing}
-        toggle = {actions.hideForm
-    }
-        handleFormSubmit = {this.handleFormSubmit
-    }
-        title = {modal.modalTitle
-    }
-        bodyContent = {
-            < CourseForm
-        title = {modal.course.title
-    }
-        description = {modal.course.description
-    }
-        img_src = {modal.course.img_src
-    }
-        topics = {topics}
-        topic = {modal.course.topic
-    }
-        errors = {modal.errors
-    }
-        onChange = {this.handleFormFieldChange
-    }
-    />
-    }
-        footerContent = {
-            React.createElement(
-            VisibleToUser(
-                () => (
-                < ButtonGroup >
-                {this.renderFormDeleteButton()
-    }
-        {
-            this.renderFormSubmitButton()
-        }
-    </
-        ButtonGroup >
-    ),
-    ),
-    )
-    }
-    />
-    </
-        div >
-    )
-        ;
+            <div>
+                <ul>
+                    <ReactCSSTransitionGroup
+                        transitionName="block"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={0}
+                        transitionAppear
+                        transitionAppearTimeout={500}
+                    >
+                        {
+                            isLoaded(courses) && !isEmpty(courses) &&
+                            Object.keys(courses).map(courseId => (
+                                <Course
+                                    key={courseId}
+                                    id={courseId}
+                                    title={courses[courseId].title}
+                                    desc={courses[courseId].description}
+                                    img={courses[courseId].img_src}
+                                    editing={editingCourseId === courseId}
+                                    onCourseClick={() => this.showForm(courseId)}
+                                />
+                            ))
+                        }
+                    </ReactCSSTransitionGroup>
+                </ul>
+                <ModalContainer
+                    isOpen={editing}
+                    toggle={actions.hideForm}
+                    handleFormSubmit={this.handleFormSubmit}
+                    title={modal.modalTitle}
+                    bodyContent={
+                        <CourseForm
+                            title={modal.course.title}
+                            description={modal.course.description}
+                            img_src={modal.course.img_src}
+                            topics={topics}
+                            topic={modal.course.topic}
+                            errors={modal.errors}
+                            onChange={this.handleFormFieldChange}
+                        />
+                    }
+                    footerContent={
+                        React.createElement(
+                            VisibleToUser(
+                                () => (
+                                    <ButtonGroup>
+                                        { this.renderFormDeleteButton() }
+                                        { this.renderFormSubmitButton() }
+                                    </ButtonGroup>
+                                ),
+                            ),
+                        )
+                    }
+                />
+            </div>
+        );
     }
 
 }

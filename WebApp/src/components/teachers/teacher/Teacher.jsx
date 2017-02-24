@@ -6,22 +6,14 @@ const Teacher = ({id, name, bio, img, editing, handleTeacherClick}) => {
         teacherClass += ' editing';
     }
     return (
-        < li
-    onClick = {handleTeacherClick}
-    className = {teacherClass}
-    id = {id} >
-        < img
-    src = {img}
-    alt = {name}
-    className = "teacher-img" / >
-        < div
-    className = "content-container" >
-        < h3 > {name} < / h3 >
-        < p > {bio} < / p >
-        < / div >
-        < / li >
-    )
-    ;
+        <li onClick={handleTeacherClick} className={teacherClass} id={id}>
+            <img src={img} alt={name} className="teacher-img"/>
+            <div className="content-container">
+                <h3>{name}</h3>
+                <p>{bio}</p>
+            </div>
+        </li>
+    );
 };
 
 Teacher.propTypes = {

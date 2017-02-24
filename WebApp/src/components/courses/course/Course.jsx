@@ -9,20 +9,14 @@ const Course = ({title, desc, img, onCourseClick, editing}) => {
         classList += ' editing';
     }
     return (
-        < li
-    className = {classList}
-    onClick = {onCourseClick} >
-        < img
-    src = {img}
-    alt = {title}
-    className = "course-img" / >
-        < div >
-        < h3 > {title} < / h3 >
-        < p > {desc} < / p >
-        < / div >
-        < / li >
-    )
-    ;
+        <li className={classList} onClick={onCourseClick}>
+            <img src={img} alt={title} className="course-img"/>
+            <div>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+            </div>
+        </li>
+    );
 };
 
 Course.propTypes = {
