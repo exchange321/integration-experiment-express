@@ -3,23 +3,20 @@ An experiment of integrating React, Redux, React Router, React Native, and Expre
 For Firebase version, click here -> [Integration Experiment (Firebase)](https://github.com/exchange321/integration-experiment-firebase/)
 
 ## Current Status
-* Server Initialized
-    - Initialized error handler
-    - Initialized MongoDB and Mongoose
-    - Initialized Sessions
-    - Initialized Models (Teacher, Topic, Course)
-    - Initialized Basic Routes for Testing (/teachers, /topics, /courses)
+Notice: Project on-hold as I have something else to deal with.
+* Finished DDP Server Setup
 
 ## Finished
 - [x] ~~Initialization~~
     - [x] ~~Server Initialization~~
     - [x] ~~Web App Initialization~~
+- [ ] **Transforming App for Firebase to Express ( React Web )**
+    - [x] ~~Integrating DDP Server to Express~~
 
 ## Todos
 * Core:
     - [ ] **Transforming App for Firebase to Express ( React Web )**
-        - [ ] **Integrating DDP Server to Express**
-        - [ ] Integrating DDP Client to Web App
+        - [ ] **Integrating DDP Client to Web App**
         - [ ] Teachers (Read)
         - [ ] Teachers (Edit)
         - [ ] Teachers (Delete)
